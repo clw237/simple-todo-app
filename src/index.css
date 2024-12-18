@@ -1,0 +1,185 @@
+/* index.css */
+:root {
+  --bg-color: hsl(0, 0%, 98%);
+  --text-color: hsl(0, 0%, 10%);
+  --primary-color: hsl(207, 90%, 54%);
+  --secondary-color: hsl(125, 47%, 44%);
+  --danger-color: hsl(10, 90%, 40%);
+}
+
+[data-theme='dark'] {
+  --bg-color: hsl(0, 0%, 10%);
+  --text-color: hsl(0, 0%, 98%);
+  --primary-color: hsl(207, 90%, 64%);
+  --secondary-color: hsl(125, 47%, 54%);
+  --danger-color: hsl(10, 90%, 50%);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle:hover {
+    background-color: hsl(207, 90%, 74%); /* Lighten the primary color by 20% */
+}
+
+.todo-list {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--text-color);
+}
+
+input[type="text"], .category-select {
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+input[type="text"]:hover, .category-select:hover {
+    border: 2px solid;
+}
+
+button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 5px;
+}
+.input-container {
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Vertically center items */
+}
+.task-input {
+    flex-grow: 1; /* Allow input to take available space */
+}
+
+.add-button {
+  background-color: var(--secondary-color);
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.add-button:hover {
+  background-color: hsl(125, 47%, 34%);
+}
+
+.delete-button {
+  background-color: var(--danger-color);
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: hsl(10, 90%, 30%);
+}
+
+.move-button {
+  background-color: var(--primary-color);
+  transition: background-color 0.3s ease;
+}
+
+.move-button:hover {
+  background-color: hsl(207, 90%, 44%);
+}
+
+.task-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style-type: none;
+}
+.task-grid li {
+  font-size: 1.2rem;
+  padding: 15px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.task-grid .text {
+  flex: 1;
+  margin-right: 10px;
+}
+.task-grid .category {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  margin-right: 15px;
+  padding-right: 15px;
+}
+.task-grid .category:hover, .task-grid .text:hover, .task-grid li:hover {
+    cursor: default;
+}
+
+.category-select {
+  margin-left: 5px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.category-select.placeholder {
+    color: hsla(0, 0%, 46%, 1); /* Light gray color */
+}
+
+/* Style for the options */
+.category-select option {
+    color: black; /* Default text color for options */
+}
+
+/* Optional: Style for disabled option */
+.category-select option:disabled {
+    color: hsla(0, 0%, 46%, 1); /* Light gray color */
+}
+.task-item-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  .task-item-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .task-item-exit {
+    opacity: 1;
+  }
+  
+  .task-item-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms, transform 300ms;
+  }
